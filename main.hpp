@@ -16,7 +16,7 @@ void getTwoValues(int begin, int end){
 int getNextPrime(int begin){
     int num = begin + 1;
     while (!isPrime(num)){
-        num++
+        num++;
     }
     return num;
 }
