@@ -7,18 +7,32 @@ int getPrevPrime(int);
 bool isPrime(int);
 
 void getTwoValues(int begin, int end){
-    do{
-        cout << "Please enter two values, make sure the first value is greater than the second: " << endl;
+    do {
+        cout << "Enter two values, the first must be greater than the second: " << endl;
         cin >> begin >> end;
-    } while (begin >= end);
+
+        if (begin < end){
+            cout << "Reinput valid values: " << endl;
+        }
+    } while (begin > end);
+
+    begin = begin;
+    end = end;
 }
 
 int getNextPrime(int begin){
-    int num = begin + 1;
-    while (!isPrime(num)){
-        num++;
+    if (begin <= 1)
+    return 2;
+
+    int prime = begin;
+    bool found = false;
+
+    while(!found) {
+        prime++;
+        if (isPrime(prime))
+        found = true;
     }
-    return num;
+    return prime;
 }
 
 int getPrevPrime(int end){
@@ -30,13 +44,13 @@ int getPrevPrime(int end){
 }
 
 bool isPrime(int num){
-    if (num <= 1) return 0;
-    if (num <= 3) return 1;
+    if (num <= 1) return false;
+    if (num <= 3) return true;
 
-    if (num % 2 == 0 || num % 3 == 0) return 0;
+    if (num % 2 == 0 || num % 3 == 0) return false;
 
         for (int i = 5; i*i <= num; i = i+6)
             if ( num % i == 0 || num % (i+2) == 0)
-            return 0;
-        return 1;
+            return false;
+        return true;
 }
