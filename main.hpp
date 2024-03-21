@@ -1,12 +1,13 @@
 #include <iostream>
 using namespace std;
 
-void getTwoValues(int, int);
+void getTwoValues(int&, int&);
 int getNextPrime(int);
 int getPrevPrime(int);
 bool isPrime(int);
 
-void getTwoValues(int begin, int end){
+// void getTwoValues(int begin, int end){
+void getTwoValues(int &begin, int &end){
     do {
         cout << "Enter two values, the first must be greater than the second: " << endl;
         cin >> begin >> end;
